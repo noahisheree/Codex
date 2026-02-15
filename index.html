@@ -1,28 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Linktree</title>
+    <title>La Clé de l'Alambic</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="linktree-card">
-      <img
-        class="avatar"
-        src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=240&q=80"
-        alt="Profile avatar"
-      />
-      <h1>@linktree</h1>
-      <p>Sharing links, one tap at a time.</p>
+    <main class="game-shell">
+      <header>
+        <h1>La Clé de l'Alambic</h1>
+        <p>
+          Déplace la buse du tuyau avec la souris. Maintiens le clic (ou
+          <kbd>Espace</kbd>) pour pincer le tuyau et envoyer un jet dans
+          l'orifice.
+        </p>
+      </header>
 
-      <nav class="links" aria-label="Social and project links">
-        <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
-        <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a href="https://x.com" target="_blank" rel="noreferrer">X (Twitter)</a>
-        <a href="https://www.youtube.com" target="_blank" rel="noreferrer">YouTube</a>
-        <a href="https://example.com" target="_blank" rel="noreferrer">Portfolio</a>
-      </nav>
+      <section class="hud" aria-live="polite">
+        <div><strong>Niveau d'eau :</strong> <span id="waterPercent">0</span>%</div>
+        <div><strong>Temps :</strong> <span id="timer">0.0</span>s</div>
+      </section>
+
+      <canvas
+        id="gameCanvas"
+        width="920"
+        height="560"
+        aria-label="Jeu de précision de jet d'eau"
+      ></canvas>
+
+      <p id="status" class="status">Remplis l'alambic pour faire remonter la clé.</p>
+      <button id="restartBtn" type="button">Recommencer</button>
     </main>
+
+    <script src="script.js"></script>
   </body>
 </html>
