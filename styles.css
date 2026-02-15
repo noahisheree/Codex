@@ -1,12 +1,9 @@
 :root {
-  color-scheme: dark;
-  --bg-start: #0a0f2f;
-  --bg-end: #191f3b;
-  --card: rgba(255, 255, 255, 0.08);
-  --text: #f4f6ff;
-  --muted: #c7cbea;
-  --link-bg: rgba(255, 255, 255, 0.12);
-  --link-bg-hover: rgba(255, 255, 255, 0.2);
+  --bg: #16120f;
+  --panel: #241c17;
+  --text: #f6ecd9;
+  --accent: #f6a53a;
+  --muted: #c8b292;
 }
 
 * {
@@ -16,61 +13,79 @@
 body {
   margin: 0;
   min-height: 100vh;
+  background: radial-gradient(circle at 20% 15%, #3b2b22 0%, var(--bg) 55%);
+  color: var(--text);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
   display: grid;
   place-items: center;
-  background: linear-gradient(160deg, var(--bg-start), var(--bg-end));
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
-    sans-serif;
-  color: var(--text);
 }
 
-.linktree-card {
-  width: min(92vw, 430px);
-  padding: 2rem 1.25rem;
-  border-radius: 18px;
-  background: var(--card);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
-  text-align: center;
+.game-layout {
+  width: min(1100px, 96vw);
+  display: grid;
+  grid-template-columns: minmax(250px, 300px) 1fr;
+  gap: 1rem;
+  align-items: stretch;
 }
 
-.avatar {
-  width: 96px;
-  height: 96px;
-  border-radius: 999px;
-  object-fit: cover;
-  border: 3px solid rgba(255, 255, 255, 0.25);
+.hud {
+  background: color-mix(in srgb, var(--panel) 90%, black 10%);
+  border: 2px solid #5b4738;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
 }
 
 h1 {
-  margin: 0.85rem 0 0.3rem;
-  font-size: 1.5rem;
+  margin-top: 0;
+  line-height: 1.1;
 }
 
-p {
-  margin: 0;
+.hud p {
   color: var(--muted);
 }
 
-.links {
-  margin-top: 1.3rem;
-  display: grid;
-  gap: 0.75rem;
+.stats {
+  margin-top: 1rem;
+  border-top: 1px solid #5b4738;
+  border-bottom: 1px solid #5b4738;
+  padding: 0.75rem 0;
 }
 
-.links a {
-  display: block;
-  padding: 0.85rem 1rem;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 600;
+.stats p {
+  margin: 0.35rem 0;
   color: var(--text);
-  background: var(--link-bg);
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  font-weight: 700;
 }
 
-.links a:hover,
-.links a:focus-visible {
-  background: var(--link-bg-hover);
-  transform: translateY(-2px);
+#resetBtn {
+  margin-top: 1rem;
+  width: 100%;
+  border: 0;
+  border-radius: 10px;
+  padding: 0.7rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #2a1a0e;
+  background: linear-gradient(180deg, #ffc671, var(--accent));
+}
+
+#resetBtn:hover {
+  filter: brightness(1.05);
+}
+
+#gameCanvas {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 2px solid #5b4738;
+  background: linear-gradient(180deg, #5e483a, #2d241d 45%, #1b1612 100%);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+}
+
+@media (max-width: 920px) {
+  .game-layout {
+    grid-template-columns: 1fr;
+  }
 }
