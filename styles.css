@@ -1,12 +1,12 @@
 :root {
   color-scheme: dark;
-  --bg-start: #0a0f2f;
-  --bg-end: #191f3b;
-  --card: rgba(255, 255, 255, 0.08);
-  --text: #f4f6ff;
-  --muted: #c7cbea;
-  --link-bg: rgba(255, 255, 255, 0.12);
-  --link-bg-hover: rgba(255, 255, 255, 0.2);
+  --bg: #10131f;
+  --panel: #1a1f34;
+  --panel-soft: #232a44;
+  --text: #f1f3ff;
+  --muted: #b7c0e4;
+  --accent: #6fd4ff;
+  --accent-2: #ffe27a;
 }
 
 * {
@@ -16,61 +16,74 @@
 body {
   margin: 0;
   min-height: 100vh;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(160deg, var(--bg-start), var(--bg-end));
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
-    sans-serif;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   color: var(--text);
+  background: radial-gradient(circle at top, #222846, var(--bg) 60%);
 }
 
-.linktree-card {
-  width: min(92vw, 430px);
-  padding: 2rem 1.25rem;
-  border-radius: 18px;
-  background: var(--card);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
-  text-align: center;
+.game-layout {
+  width: min(1200px, 96vw);
+  margin: 1rem auto;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 1rem;
+  align-items: start;
 }
 
-.avatar {
-  width: 96px;
-  height: 96px;
-  border-radius: 999px;
-  object-fit: cover;
-  border: 3px solid rgba(255, 255, 255, 0.25);
+.hud,
+.scene {
+  background: linear-gradient(180deg, var(--panel), var(--panel-soft));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
 }
 
-h1 {
-  margin: 0.85rem 0 0.3rem;
+.hud {
+  padding: 1.2rem;
+}
+
+.hud h1 {
+  margin: 0;
   font-size: 1.5rem;
 }
 
-p {
-  margin: 0;
+.hud p,
+.hud li {
   color: var(--muted);
+  line-height: 1.4;
 }
 
-.links {
-  margin-top: 1.3rem;
-  display: grid;
-  gap: 0.75rem;
+.hud ul {
+  padding-left: 1rem;
+  margin: 0.75rem 0;
 }
 
-.links a {
-  display: block;
-  padding: 0.85rem 1rem;
+.status-row {
+  margin-top: 1rem;
+  padding: 0.85rem;
   border-radius: 10px;
-  text-decoration: none;
-  font-weight: 600;
-  color: var(--text);
-  background: var(--link-bg);
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  background: rgba(255, 255, 255, 0.05);
 }
 
-.links a:hover,
-.links a:focus-visible {
-  background: var(--link-bg-hover);
-  transform: translateY(-2px);
+.status-row p {
+  margin: 0.35rem 0;
+  color: var(--text);
+}
+
+.scene {
+  padding: 0.6rem;
+}
+
+canvas {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  background: linear-gradient(#3a2f27, #181513 70%);
+}
+
+@media (max-width: 980px) {
+  .game-layout {
+    grid-template-columns: 1fr;
+  }
 }
