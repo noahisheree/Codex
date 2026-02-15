@@ -1,12 +1,11 @@
 :root {
   color-scheme: dark;
-  --bg-start: #0a0f2f;
-  --bg-end: #191f3b;
-  --card: rgba(255, 255, 255, 0.08);
-  --text: #f4f6ff;
-  --muted: #c7cbea;
-  --link-bg: rgba(255, 255, 255, 0.12);
-  --link-bg-hover: rgba(255, 255, 255, 0.2);
+  --bg: #1a1610;
+  --panel: rgba(34, 26, 18, 0.92);
+  --text: #f4ead6;
+  --accent: #6ec8ff;
+  --warning: #ffd07d;
+  --success: #8dff96;
 }
 
 * {
@@ -18,59 +17,78 @@ body {
   min-height: 100vh;
   display: grid;
   place-items: center;
-  background: linear-gradient(160deg, var(--bg-start), var(--bg-end));
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
-    sans-serif;
+  background: radial-gradient(circle at 10% 0%, #4b3b2d 0%, var(--bg) 45%, #110d08 100%);
   color: var(--text);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
 }
 
-.linktree-card {
-  width: min(92vw, 430px);
-  padding: 2rem 1.25rem;
-  border-radius: 18px;
-  background: var(--card);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
-  text-align: center;
-}
-
-.avatar {
-  width: 96px;
-  height: 96px;
-  border-radius: 999px;
-  object-fit: cover;
-  border: 3px solid rgba(255, 255, 255, 0.25);
+.game-shell {
+  width: min(95vw, 980px);
+  padding: 1rem 1rem 1.2rem;
+  border: 1px solid rgba(255, 214, 155, 0.25);
+  border-radius: 14px;
+  background: var(--panel);
+  box-shadow: 0 22px 40px rgba(0, 0, 0, 0.45);
 }
 
 h1 {
-  margin: 0.85rem 0 0.3rem;
-  font-size: 1.5rem;
-}
-
-p {
   margin: 0;
-  color: var(--muted);
+  font-size: clamp(1.3rem, 2.2vw, 2rem);
 }
 
-.links {
-  margin-top: 1.3rem;
-  display: grid;
-  gap: 0.75rem;
+header p {
+  margin: 0.45rem 0 0.8rem;
+  color: #e9d9bb;
 }
 
-.links a {
+kbd {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  padding: 0.05rem 0.35rem;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.hud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.65rem;
+  color: var(--warning);
+  margin-bottom: 0.6rem;
+}
+
+canvas {
+  width: 100%;
+  height: auto;
   display: block;
-  padding: 0.85rem 1rem;
   border-radius: 10px;
-  text-decoration: none;
-  font-weight: 600;
-  color: var(--text);
-  background: var(--link-bg);
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  border: 2px solid rgba(255, 214, 155, 0.3);
+  background: linear-gradient(0deg, #36281a 0%, #4b3d2c 65%, #60543f 100%);
 }
 
-.links a:hover,
-.links a:focus-visible {
-  background: var(--link-bg-hover);
-  transform: translateY(-2px);
+.status {
+  margin: 0.75rem 0 0;
+  font-size: 1.02rem;
+  color: var(--warning);
+}
+
+.status.win {
+  color: var(--success);
+  font-weight: 700;
+}
+
+#restartBtn {
+  margin-top: 0.65rem;
+  padding: 0.55rem 0.95rem;
+  font-weight: 700;
+  color: #20150a;
+  background: #ffd183;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#restartBtn:hover {
+  filter: brightness(1.05);
 }
