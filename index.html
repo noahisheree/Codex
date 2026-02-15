@@ -1,28 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Linktree</title>
+    <title>Épreuve de l'Alambic</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="linktree-card">
-      <img
-        class="avatar"
-        src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=240&q=80"
-        alt="Profile avatar"
-      />
-      <h1>@linktree</h1>
-      <p>Sharing links, one tap at a time.</p>
+    <main class="game-layout">
+      <section class="panel instructions">
+        <h1>Épreuve de l'Alambic</h1>
+        <p>
+          Un candidat entre dans la cellule avec un tuyau court. Pincez le bout
+          du tuyau pour augmenter la pression, puis visez l'orifice de l'alambic
+          pour le remplir et faire remonter la clé.
+        </p>
+        <ul>
+          <li><strong>Maintenir clic / espace :</strong> pincer le tuyau</li>
+          <li><strong>Souris :</strong> orienter le jet</li>
+          <li><strong>Objectif :</strong> amener l'eau à 100&nbsp;%</li>
+        </ul>
 
-      <nav class="links" aria-label="Social and project links">
-        <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
-        <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a href="https://x.com" target="_blank" rel="noreferrer">X (Twitter)</a>
-        <a href="https://www.youtube.com" target="_blank" rel="noreferrer">YouTube</a>
-        <a href="https://example.com" target="_blank" rel="noreferrer">Portfolio</a>
-      </nav>
+        <div class="hud">
+          <p>Niveau d'eau</p>
+          <div class="bar-shell" role="img" aria-label="Niveau d'eau de l'alambic">
+            <div class="bar-fill" id="waterBar"></div>
+          </div>
+          <p class="hud-text"><span id="waterPercent">0</span>%</p>
+        </div>
+
+        <button id="resetBtn" type="button">Recommencer</button>
+      </section>
+
+      <section class="panel arena">
+        <canvas id="gameCanvas" width="880" height="560" aria-label="Zone de jeu"></canvas>
+        <p id="status" class="status" aria-live="polite">
+          Orientez le jet vers l'orifice et maintenez pour remplir l'alambic.
+        </p>
+      </section>
     </main>
+
+    <script src="script.js"></script>
   </body>
 </html>
