@@ -1,28 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Linktree</title>
+    <title>Le Secret de l'Alambic</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="linktree-card">
-      <img
-        class="avatar"
-        src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=240&q=80"
-        alt="Profile avatar"
-      />
-      <h1>@linktree</h1>
-      <p>Sharing links, one tap at a time.</p>
+    <main class="game-layout">
+      <section class="hud">
+        <h1>Le Secret de l'Alambic</h1>
+        <p>
+          Pince le tuyau et vise l'orifice d'entrée pour remplir l'alambic. Quand
+          l'eau monte, la clé remonte aussi.
+        </p>
+        <ul>
+          <li><strong>Souris :</strong> viser le jet</li>
+          <li><strong>Clic maintenu :</strong> pincer le tuyau et projeter l'eau</li>
+          <li><strong>R :</strong> recommencer</li>
+        </ul>
+        <div class="status-row">
+          <p id="status">Attrape la clé !</p>
+          <p id="gauge">Niveau d'eau : 0%</p>
+        </div>
+      </section>
 
-      <nav class="links" aria-label="Social and project links">
-        <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
-        <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a href="https://x.com" target="_blank" rel="noreferrer">X (Twitter)</a>
-        <a href="https://www.youtube.com" target="_blank" rel="noreferrer">YouTube</a>
-        <a href="https://example.com" target="_blank" rel="noreferrer">Portfolio</a>
-      </nav>
+      <section class="scene" aria-label="Zone de jeu">
+        <canvas id="gameCanvas" width="900" height="540"></canvas>
+      </section>
     </main>
+
+    <script src="game.js"></script>
   </body>
 </html>
